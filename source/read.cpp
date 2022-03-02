@@ -6,43 +6,44 @@ using namespace std;
 
 void readAndPrint(const string& path)
 {
-	ifstream input(path.c_str());
+	ifstream inputFile(path.c_str());
 	
-	if(!input)
+	if(inputFile)
 	{
 		cout << "\n--------------------------------------------------------\n";
-		cout << "\n  (x) Can't read file in " << path << "\n";
+		cout << " (!) " << path;
+		cout << "\n--------------------------------------------------------\n\n";
+		string line = "";
+		while(getline(inputFile, line))
+		{
+			cout << line << "\n";
+		}
+		cout << "\n--------------------------------------------------------\n";
+		cout << " (!) End of file " << path;
 		cout << "\n--------------------------------------------------------\n\n";
 	}
 	else
 	{
-		cout << "\n--------------------------------------------------------\n";
-		cout << "\n (!) " << path << "\n";
+		cout << "\n-------------------------------------------------------\n";
+		cout << "  (x) Can't read file " << path;
 		cout << "\n--------------------------------------------------------\n\n";
-		string line = "";
-		while(getline(input, line))
-		{
-			cout << line << "\n";
-		}
 	}
-	cout << "\n--------------------------------------------------------\n";
-	cout << "\n (!) End of file " << path << "\n";
-	cout << "\n--------------------------------------------------------\n\n";
 }
 
 void help()
 {
 	cout << "HELP:\n";
-	cout << "  + This program only is used to read text file (*.txt, ...)\n";
+	cout << "  + This program is only used to read text file (*.txt, ...)\n";
 	cout << "  + Command: read path_to_file_1, path_to_file 2 ...\n\n";
 }
 
-int main(int argc, char** argv) {
+int main(int argc, char* argv[]) {
 	if(argc > 1)
 	{
 		for(int i = 1; i < argc; i++)
 		{
-			readAndPrint(argv[i]);
+			string path = argv[i];
+			readAndPrint(path);
 		}	
 	}
 	else
