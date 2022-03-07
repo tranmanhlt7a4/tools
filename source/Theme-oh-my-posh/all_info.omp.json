@@ -52,6 +52,15 @@
           "type": "sysinfo"
         },
         {
+          "background": "#0077c2",
+          "foreground": "#ffffff",
+          "properties": {
+            "template": "<#0077c2,transparent>\ue0b2</> {{ .Name }} <transparent,#0077c2>\ue0b2</>"
+          },
+          "style": "plain",
+          "type": "shell"
+        },
+        {
           "background": "#f36943",
           "background_templates": [
             "{{if eq \"Charging\" .State.String}}#33DD2D{{end}}",
@@ -145,16 +154,6 @@
           },
           "style": "plain",
           "type": "exit"
-        },
-        {
-          "background": "#203248",
-          "foreground": "#ffffff",
-          "powerline_symbol": "\ue0b0",
-          "properties": {
-            "template": " \ufcb5 {{ .Name }} "
-          },
-          "style": "powerline",
-          "type": "shell"
         }
       ],
       "type": "prompt"
